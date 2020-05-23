@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import SharedObserver from './observerProps';
-
+import console from './logger';
 
 window.SharedObserver = SharedObserver
 export function useToCreateSharedProps (key, newState) {
@@ -23,16 +23,19 @@ export function useToCreateSharedProps (key, newState) {
 
 export function useToConsumeSharedProps (key, depId) {
   const [state, setState] = useState();
-  const render = useRef(({ newValue }) => setState(newValue));
+  const render = useRef(({ newValue }) => {
+    console.log('<<<<<< triggering re-render for key: ', key, 'depId', depId, ' with newVal: ', newValue)
+    setState(newValue)
+  });
 
   useEffect(() => {
     const updateCb = render.current;
     setTimeout(() => {
-      console.log('subscribing to key: ', key, ' depId: ', depId, ' with cb: ', updateCb);
+      console.log('subscribing to key: ', key, ' depId: ', depId);
       SharedObserver.subscribe({ key, depId }, updateCb);
     })
     return () => {
-      console.log('unsubscribing to key: ', key, ' depId: ', depId, ' with cb: ', updateCb);
+      console.log('unsubscribing to key: ', key, ' depId: ', depId);
       SharedObserver.unsubscribe({ key, depId }, updateCb);
     }
   }, [key, depId]);

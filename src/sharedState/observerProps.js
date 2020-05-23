@@ -1,4 +1,5 @@
 import StateManager from "./stateManager";
+import console from './logger';
 
 /**
  * @typedef {Map<String, StateManager>} SharedObserverStateManger

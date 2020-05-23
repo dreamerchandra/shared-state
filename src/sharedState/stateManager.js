@@ -2,6 +2,7 @@
 /**
  * @typedef {Map<String, Array<Function>} DependencyObserver
  */
+import console from './logger';
 
 export default class StateManager {
 
@@ -47,8 +48,8 @@ export default class StateManager {
 
   update = (newState) => {
     this.notifyObservers(this.getChangedEntities({ newState }));
-    const updateState = this._update(newState);
     console.log('old state', this.state);
+    const updateState = this._update(newState);
     console.log('state to be updated', updateState)
     this.state = updateState;
     return this.state;
