@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, createRef, useRef, memo } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.css';
+import { useInterval } from './customHooks';
+import { useToCreateSharedProps, useToConsumeSharedProps } from './sharedProps';
+
+function A () {
+  const a = useToConsumeSharedProps('App', 'a');
+  console.log('a: ', a);
+  return (<p>child: {a}</p>)
+}
+
+const MemoA = memo(A);
+
+function App () {
+  const [a, setA] = useState(1);
+  const [b, setB] = useState(1);
+  useToCreateSharedProps('App', { a, b });
+
+  useInterval(() => {
+    setA(a + 1)
+  }, 2000);
+
+  return (<>
+    <p>parent: {a}</p>
+    <MemoA />
+  </>);
 }
 
 export default App;
