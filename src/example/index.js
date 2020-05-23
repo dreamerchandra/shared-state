@@ -5,18 +5,19 @@ import Display from './child';
 
 disableSharedStateLogger();
 
+const incrementCounter = (preVal) => preVal + 1;
+const divideCounterBy = (counter, n) => counter / n;
+
 function App () {
   const [counter1, setCounter1] = useState(1);
   const [counter2, setCounter2] = useState(1);
-
-  const divideCounterBy = (n) => counter2 / n;
-
+  
+  
   useToCreateSharedProps('App', {
     counter1, counter2,
-    counter3:  divideCounterBy(2), 
+    counter3:  divideCounterBy(counter2, 2), 
   });
 
-  const incrementCounter = (preVal) => preVal + 1;
 
   useInterval(() => {
     console.log('>> changing the value of counter to: ', counter1 + 1);

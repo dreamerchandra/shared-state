@@ -17,7 +17,6 @@ export default class SharedObserver{
   
   static deleteObserver (key) {
     const stateManger = this.stateManager.get(key);
-
     if (!stateManger) return;
 
     stateManger.cleanUp();

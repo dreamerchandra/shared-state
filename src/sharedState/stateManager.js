@@ -49,24 +49,24 @@ export default class StateManager {
   update = (newState) => {
     this.notifyObservers(this.getChangedEntities({ newState }));
     console.log('old state', this.state);
-    const updateState = this._update(newState);
-    console.log('state to be updated', updateState)
-    this.state = updateState;
+    const updatedState = this._update(newState);
+    console.log('state to be updated', updatedState)
+    this.state = updatedState;
     return this.state;
   }
 
   subscribe (depId, newCallBack) {
-    const callBacks = this.depObservers.get(depId) || [];
-    this.depObservers.set(depId, [...callBacks, newCallBack]);
+    const oldCallBacks = this.depObservers.get(depId) || [];
+    this.depObservers.set(depId, [...oldCallBacks, newCallBack]);
     const updatedObservers = this.depObservers.get(depId);
     console.log('subscribed for depId: ', depId, ' is successful and new depObservers are', updatedObservers);
     newCallBack && newCallBack({ newValue: this.state[depId]})
     return updatedObservers;
   }
 
-  unsubscribe (depId, oldCallBack) {
+  unsubscribe (depId, callBackToBeRemoved) {
     const existingCallBacks = this.depObservers.get(depId);
-    const updatedCallBack = existingCallBacks.filter((callBack) => callBack !== oldCallBack)
+    const updatedCallBack = existingCallBacks.filter((callBack) => callBack !== callBackToBeRemoved)
     this.depObservers.set(depId, updatedCallBack);
     return updatedCallBack
   }

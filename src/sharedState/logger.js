@@ -1,8 +1,8 @@
 class LogManger {
   showLogs = true
-  print (fnName, ...args) {
+  print (loggerType, ...args) {
     if (this.showLogs) {
-      console[fnName](...args)
+      console[loggerType](...args)
     }
   }
   log = (...args) => this.print('log', ...args)
