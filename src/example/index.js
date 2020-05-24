@@ -15,7 +15,7 @@ function App () {
   
   useToCreateSharedProps('App', {
     counter1, counter2,
-    counter3:  divideCounterBy(counter2, 2), 
+    counter3:  divideCounterBy(counter2, 2),
   });
 
 

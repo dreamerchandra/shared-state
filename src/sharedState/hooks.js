@@ -21,11 +21,13 @@ export function useToCreateSharedProps (key, newState) {
 
 
 
-export function useToConsumeSharedProps (key, depId) {
+export function useToConsumeSharedProps (key, depId, isSharedStateValueChanged = () => true) {
   const [state, setState] = useState();
-  const render = useRef(({ newValue }) => {
-    console.log('<<<<<< triggering re-render for key: ', key, 'depId', depId, ' with newVal: ', newValue)
-    setState(newValue)
+  const render = useRef(({ newValue, oldValue }) => {
+    if (isSharedStateValueChanged(oldValue, newValue)) {
+      console.log('<<<<<< triggering re-render for key: ', key, 'depId', depId, ' with newVal: ', newValue)
+      setState(newValue)
+    }
   });
 
   useEffect(() => {
