@@ -29,7 +29,7 @@ export default class StateManager {
     return entitiesChanged;
   }
 
-  _update = (newState) => ({
+  getNewState = (newState) => ({
       ...this.state,
       ...newState,
   });
@@ -49,7 +49,7 @@ export default class StateManager {
   update = (newState) => {
     this.notifyObservers(this.getChangedEntities({ newState }));
     console.log('old state', this.state);
-    const updatedState = this._update(newState);
+    const updatedState = this.getNewState(newState);
     console.log('state to be updated', updatedState)
     this.state = updatedState;
     return this.state;

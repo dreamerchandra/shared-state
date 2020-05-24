@@ -1,4 +1,4 @@
-import { useToCreateSharedProps, useToConsumeSharedProps } from './provider';
+import { useToCreateSharedProps, useToConsumeSharedProps } from './hooks';
 import sharedStateLogger from './logger';
 
 const disableLogger = () => sharedStateLogger.showLogs = false

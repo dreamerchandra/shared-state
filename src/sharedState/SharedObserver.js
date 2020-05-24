@@ -1,4 +1,4 @@
-import StateManager from "./stateManager";
+import StateManager from "./StateManager";
 import console from './logger';
 
 /**

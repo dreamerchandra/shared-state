@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import SharedObserver from './observerProps';
+import SharedObserver from './SharedObserver';
 import console from './logger';
 
 window.SharedObserver = SharedObserver
