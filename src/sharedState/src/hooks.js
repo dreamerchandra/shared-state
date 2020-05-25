@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 import SharedObserver from './SharedObserver';
 import console from './logger';
 
-window.SharedObserver = SharedObserver
 export function useToCreateSharedProps (key, newState) {
   useEffect(() => {
     console.log(`creating observer for key: ${key}`);

@@ -1,9 +1,8 @@
 import React, { useState} from 'react';
 import { useInterval } from './customHooks';
-import { useToCreateSharedProps, disableLogger as disableSharedStateLogger } from '../sharedState';
+import { useToCreateSharedProps } from 'shared-state';
 import Display from './child';
 
-disableSharedStateLogger();
 
 const incrementCounter = (preVal) => preVal + 1;
 const divideCounterBy = (counter, n) => counter / n;

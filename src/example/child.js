@@ -1,4 +1,4 @@
-import { useToConsumeSharedProps } from '../sharedState';
+import { useToConsumeSharedProps } from 'shared-state';
 import React, { useEffect, memo } from 'react';
 
 function DisplayCounter ({ counterId }) {

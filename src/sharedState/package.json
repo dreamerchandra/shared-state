@@ -1,0 +1,47 @@
+{
+  "name": "shared-state",
+  "version": "0.1.0",
+  "description": "A way to avoid drilling down props",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dreamerchandra/shared-state.git"
+  },
+  "keywords": [
+    "react",
+    "avoid",
+    "drilling",
+    "down",
+    "props",
+    "avoiding",
+    "deep",
+    "nested",
+    "props"
+  ],
+  "author": "Chandrakumar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dreamerchandra/shared-state/issues"
+  },
+  "homepage": "https://github.com/dreamerchandra/shared-state#readme",
+  "peerDependencies": {
+    "react": "^16.8.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.1.0"
+  },
+  "scripts": {
+    "prepublish": "babel src --out-dir lib"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties"
+    ]
+  }
+}
