@@ -1,6 +1,6 @@
 {
-  "name": "shared-state",
-  "version": "0.1.0",
+  "name": "shared-state-react",
+  "version": "0.1.1",
   "description": "A way to avoid drilling down props",
   "main": "lib/index.js",
   "repository": {
@@ -9,14 +9,8 @@
   },
   "keywords": [
     "react",
-    "avoid",
-    "drilling",
-    "down",
-    "props",
-    "avoiding",
-    "deep",
-    "nested",
-    "props"
+    "avoidDrillingDownProps",
+    "avoidDeepNestedProps"
   ],
   "author": "Chandrakumar",
   "license": "MIT",

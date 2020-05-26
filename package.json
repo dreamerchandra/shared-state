@@ -5,8 +5,8 @@
   "author": "Chandrakumar",
   "keywords": [
     "react",
-    "avoid drilling down props",
-    "avoiding deep nested props"
+    "avoidDrillingDownProps",
+    "avoidDeepNestedProps"
   ],
   "repository": {
     "type": "git",
