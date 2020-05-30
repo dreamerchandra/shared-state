@@ -48,10 +48,10 @@ Yea it works again refactoring matters and the same problem with context follows
 
 # My Idea
 Create a observer whenever you want to share your state and listen to the changes in the consumer. 
-Do `npm i shared-state-react`
+
 ## Example
 ```
-import { useToCreateSharedProps, useToConsumeSharedProps } from 'shared-state-react';
+import { useToCreateSharedProps, useToConsumeSharedProps } from 'shared-state';
 const Parent = () => {
     const [counter1, setCounter1] = useState(1);
     const [counter2, setCounter2] = useState(1);
@@ -76,8 +76,6 @@ const MemoCounter = React.memo(Counter); // since counter is not a part of props
 
 
 ## How it works
-
-`npm i shared-state-react`
 
 `useToCreateSharedProps` create a object with an ability to track changed values and update the corresponding observer which are added with `useToConsumeSharedProps`. This library uses `===` to check if something has changed. So read bonus tip for custom part of `useToConsumeSharedProps`
 
